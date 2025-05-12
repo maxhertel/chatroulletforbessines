@@ -5,6 +5,7 @@ import { createInertiaApp } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { createApp, h } from 'vue';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy';
+import Echo from 'laravel-echo';
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
@@ -24,4 +25,13 @@ createInertiaApp({
     progress: {
         color: '#4B5563',
     },
+});
+
+window.Echo = new Echo({
+    broadcaster: 'reverb',
+    key: process.env.MIX_REVERB_APP_KEY,
+    wsHost: window.location.hostname,
+    wsPort: 8080,
+    forceTLS: false,
+    enabledTransports: ['ws', 'wss'],
 });
