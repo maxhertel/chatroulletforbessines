@@ -5,7 +5,7 @@
         <div> 
           <button
             @click="highlightContinent('Africa')"
-            class="mt-3 w-full rounded-md bg-slate-800 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2"
+            class="mt-5 w-full  bg-green-800 py-5 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-green-700 focus:shadow-none active:bg-green-700 hover:bg-green-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2"
             type="button">
             África
           </button>
@@ -13,7 +13,7 @@
         <div> 
           <button 
             @click="highlightContinent('America')"
-            class="mt-3 w-full rounded-md bg-slate-800 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2"
+            class="mt-3 w-full  bg-green-800 py-5 px-4  text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-green-700 focus:shadow-none active:bg-green-700 hover:bg-green-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2"
             type="button">
             America
           </button>
@@ -21,9 +21,9 @@
         <div> 
           <button 
             @click="highlightContinent('Asia')" 
-            class="mt-3 w-full rounded-md bg-slate-800 py-2 px-4 border border-slate-800 text-center text-sm text-white 
-            shadow-md hover:shadow-lg focus:bg-slate-700 focus:border-slate-700 focus:shadow-none 
-            active:bg-slate-700 active:border-slate-700 active:shadow-none 
+            class="mt-3 w-full  bg-green-800 py-5 px-4   text-center text-sm text-white 
+            shadow-md hover:shadow-lg focus:bg-green-700  focus:shadow-none 
+            active:bg-green-700  active:shadow-none 
             ml-2" 
             type="button">
             Ásia
@@ -32,9 +32,9 @@
         <div> 
           <button 
             @click="highlightContinent('Europe')" 
-            class="mt-3 w-full rounded-md bg-slate-800 py-2 px-4 border border-slate-800 text-center text-sm text-white 
-            shadow-md hover:shadow-lg focus:bg-slate-700 focus:border-slate-700 focus:shadow-none 
-            active:bg-slate-700 active:border-slate-700 active:shadow-none 
+            class="mt-3 w-full  bg-green-800 py-5 px-4   text-center text-sm text-white 
+            shadow-md hover:shadow-lg focus:bg-green-700  focus:shadow-none 
+            active:bg-green-700  active:shadow-none 
             ml-2" 
             type="button">
             Europa
@@ -43,81 +43,19 @@
         <div> 
           <button 
             @click="highlightContinent('Oceania')" 
-            class="mt-3 w-full rounded-md bg-slate-800 py-2 px-4 border border-slate-800 text-center text-sm text-white 
-            shadow-md hover:shadow-lg focus:bg-slate-700 focus:border-slate-700 focus:shadow-none 
-            active:bg-slate-700 active:border-slate-700 active:shadow-none 
+            class="mt-3 w-full  bg-green-800 py-5 px-4   text-center text-sm text-white 
+            shadow-md hover:shadow-lg focus:bg-green-700  focus:shadow-none 
+            active:bg-green-700  active:shadow-none 
             ml-2" 
             type="button">
             Oceania
-          </button>
-        </div>
-
-        <!-- Área do Chat -->
-        <div v-if="selectedContinent" class="mt-4 p-4">
-          <input 
-            v-model="username" 
-            placeholder="Seu nome" 
-            class="p-2 border rounded w-full"
-            @keyup.enter="joinChat"
-          />
-          <button 
-            @click="joinChat" 
-            class="mt-2 w-full p-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-            :disabled="!username.trim()"
-          >
-            Entrar no Chat
-          </button>
-        </div>
-
-        <div v-if="inChat" class="mt-4 p-4 border rounded bg-white shadow">
-          <div class="chat-messages mb-4" style="height: 200px; overflow-y: auto;">
-            <div 
-              v-for="(msg, index) in messages" 
-              :key="index" 
-              :class="{
-                'text-right': msg.sender === 'me',
-                'text-left': msg.sender !== 'me',
-                'text-blue-600': msg.sender === 'me',
-                'text-green-600': msg.sender === 'partner',
-                'text-gray-500': msg.sender === 'system'
-              }"
-              class="mb-2"
-            >
-              <strong v-if="msg.sender !== 'me'">
-                {{ msg.sender === 'partner' ? partnerName : 'Sistema' }}:
-              </strong> 
-              {{ msg.text }}
-            </div>
-          </div>
-          
-          <div class="flex">
-            <input 
-              v-model="newMessage" 
-              @keyup.enter="sendMessage" 
-              placeholder="Digite sua mensagem" 
-              class="flex-1 p-2 border rounded-l"
-            />
-            <button 
-              @click="sendMessage" 
-              class="p-2 bg-blue-500 text-white rounded-r hover:bg-blue-600"
-              :disabled="!newMessage.trim()"
-            >
-              Enviar
-            </button>
-          </div>
-          
-          <button 
-            @click="leaveChat" 
-            class="mt-2 w-full p-2 bg-red-500 text-white rounded hover:bg-red-600"
-          >
-            Sair do Chat
           </button>
         </div>
       </div>
     </div>
 
     <div class="basis-3/4">
-      <div id="map" style="min-height: 600px;"></div>
+      <div id="map" style="min-height: 600px;max-height: 600px;"></div>
     </div>
   </div>
 </template>
@@ -226,7 +164,7 @@ export default {
         enabledTransports: ['ws', 'wss'],
       });
     },
-    joinChat() {
+    goToChat() {
       if (!this.username.trim() || !this.selectedContinent) return;
       
       this.inChat = true;

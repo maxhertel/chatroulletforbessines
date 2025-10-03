@@ -1,0 +1,14 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "test",
+			"path": "ChatRollueteBackEnd/vendor/tightenco/ziggy",
+			"group": "test",
+			"problemMatcher": [],
+			"label": "npm: test - ChatRollueteBackEnd/vendor/tightenco/ziggy",
+			"detail": "vitest --typecheck"
+		}
+	]
+}

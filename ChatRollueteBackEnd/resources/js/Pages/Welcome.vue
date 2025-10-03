@@ -28,7 +28,7 @@ defineProps({
             <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
                 <header class="grid grid-cols-2 gap-2 py-10 lg:grid-cols-3" style="margin-bottom: 50px;">
                     <div class="flex lg:col-start-2 justify-left">
-                        Chat Roulette for Business
+                        Chat Roulette Business
                     </div>
                     <nav v-if="canLogin" class="-mx-3 flex flex-1 justify-end">
                         <Link v-if="$page.props.auth.user" :href="route('dashboard')"
@@ -48,8 +48,27 @@ defineProps({
                 </header>
 
                 <WorldMap/>
-                <footer class="py-16 text-center text-sm text-black dark:text-white/70">
-                    Links
+                <footer class="py-16 bg-purple text-sm text-black dark:text-white/70">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                        <div>
+                            <a href="#" class="hover:underline">
+                                <img src="/images/link1.png" alt="Link 1" class="mx-auto mb-2 w-8 h-8" />
+                                Link 1
+                            </a>
+                        </div>
+                        <div>
+                            <a href="#" class="hover:underline">
+                                <img src="/images/link3.png" alt="Link 3" class="mx-auto mb-2 w-8 h-8" />
+                                Link 3
+                            </a>
+                        </div>
+                        <div>
+                            <a href="#" class="hover:underline">
+                                <img src="/images/link5.png" alt="Link 5" class="mx-auto mb-2 w-8 h-8" />
+                                Link 5
+                            </a>
+                        </div>
+                    </div>
                 </footer>
             </div>
         </div>
